@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="weatherForecast">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.min.js"></script>
+    <script src="weatherForecast.js"></script>
+    <link rel="stylesheet" href="weatherForecast.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+	<div class="container" ng-controller="weatherForecastController">
+		<h1>Weather Forecast App</h1>
+		{{test}}
+		<form>
+			<div class="form-group col-xs-6">
+			  <input type="text" class="col-xs-6 form-control" name="city" ng-model="city" placeholder="Enter city name" ng-keyup="citySearch(city)">
+				<ul class="list-group" ng-model="isVisible" ng-hide="isVisible">  
+					<li class="list-group-item" ng-repeat="cityData in filteredCity track by $index" ng-click="fillSearchBox(cityData)">{{cityData}}</li>  
+				</ul> 
+			</div>
+			
+		</form>
+	</div>
+  </body>
+</html>
